@@ -1,0 +1,74 @@
+﻿<Window x:Class="Auction.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Auction"
+        mc:Ignorable="d"
+        Title="Auction Management" 
+        Height="500" Width="700" 
+        Background="#fafafa" >
+    <Grid >
+        <TabControl>
+
+            <!-- DASHBORAD -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="Dashboard" FontSize="13" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+
+            <!-- AUCTION ITEM -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="Auction Item" FontSize="13" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="442" Margin="0,0,0,0" VerticalAlignment="Top" Width="350"/>
+
+
+
+            </TabItem>
+
+            <!-- AUCTION LOCATION -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Auction Event"
+                            FontSize="13" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="#fafafa" >
+                    <Label Content="Event Name" HorizontalAlignment="Left" Margin="55,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <TextBox Name="txtEvent_EventName" Height="23" Margin="134,51,0,0" Width="150" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <Label Content="Item Name" HorizontalAlignment="Left" Margin="60,105,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <TextBox Name="txtEvent_ItemName" Height="23" Margin="134,112,0,0" Width="150" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <Label Content="Location" HorizontalAlignment="Left" Margin="74,162,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <TextBox Name="txtEvent_Location" Height="23" Margin="134,170,0,0" Width="150" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <Label Content="Time" HorizontalAlignment="Left" Margin="93,223,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <TextBox Name="txtEvent_Date" Height="23" Margin="134,230,0,0" Width="70" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <TextBox Name="txtEvent_Time" Height="23" Margin="224,230,0,0" Width="60" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <Label Content="Registration Fee" HorizontalAlignment="Left" Margin="34,285,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <TextBox Name="txtEvent_RegistrationFees" Height="23" Margin="134,293,0,0" Width="150" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <Button Name="btnEvent_Submit" Height="24" Margin="134,348,0,0" Width="150" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        Submit
+                    </Button>
+                </Grid>
+            </TabItem>
+            <StackPanel Height="100" Width="100"/>
+            <StackPanel Height="100" Width="100"/>
+
+        </TabControl>
+    </Grid>
+</Window>
