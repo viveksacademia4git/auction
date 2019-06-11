@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auction"
+        xmlns:ln="clr-namespace:Auction.Properties"
         mc:Ignorable="d"
         Title="Auction Management" 
-        Height="500" Width="700" 
-        Background="#fafafa" >
+        Height="500" Width="850" FontSize="12" >
+    
     <Grid >
+        
         <TabControl>
 
             <!-- DASHBORAD -->
@@ -20,6 +22,8 @@
                 </TabItem.Header>
             </TabItem>
 
+
+
             <!-- AUCTION ITEM -->
             <TabItem>
                 <TabItem.Header>
@@ -28,7 +32,65 @@
                     </StackPanel>
                 </TabItem.Header>
 
-                <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="442" Margin="0,0,0,0" VerticalAlignment="Top" Width="350"/>
+                <Grid>
+
+                    <StackPanel HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="495">
+                        <TextBox x:Name="txtItem_SearchName" HorizontalAlignment="Left" Height="23" Margin="10,12,0,0"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="Enter Auction Item Name" 
+                            TextChanged="txtItem_SearchName_Filter" Width="200"/>
+                        <ListView x:Name="lbxItem_Items" HorizontalAlignment="Left" Margin="10,10,0,0" 
+                                 VerticalAlignment="Top" Width="475" Grid.IsSharedSizeScope="False"
+                                  HorizontalContentAlignment="Left"  >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="BorderBrush" Value="LightGray" />
+                                    <Setter Property="BorderThickness" Value="0,1,0,0" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Sold}" Width="60" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox IsChecked="{Binding sold}" IsEnabled="False" Content=""
+                                                    Foreground="{Binding sold?red:black}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Name}" DisplayMemberBinding="{Binding itemName}" Width="150"  />
+                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" DisplayMemberBinding="{Binding initialPrice}" Width="77" />
+                                    <GridViewColumn Header="{x:Static ln:Resources.Information}" DisplayMemberBinding="{Binding additionalInfo}" Width="180" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+
+                    <Grid Background="#fafafa" Margin="500,0,0,0" >
+                        <Label Content="{x:Static ln:Resources.Name}" 
+                            HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Name" HorizontalAlignment="Left" Height="23" Margin="90,40,0,0" 
+                            Width="200" VerticalContentAlignment="Center" VerticalAlignment="Top" />
+                        <Label Content="{x:Static ln:Resources.Price}"
+                            HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Price" HorizontalAlignment="Left" Height="23" Margin="90,80,0,0" 
+                            Width="80" VerticalContentAlignment="Center" VerticalAlignment="Top" 
+                            HorizontalContentAlignment="Right" />
+                        <Label Content="$" HorizontalAlignment="Left" Margin="170,78,0,0" VerticalAlignment="Top" 
+                            Width="20" FontSize="13" HorizontalContentAlignment="Left" />
+                        <Label Content="{x:Static ln:Resources.Information}"
+                            HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Information" HorizontalAlignment="Left" Height="50" Margin="90,120,0,0" 
+                            Width="200" VerticalAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True" />
+                        <Label  Content="{x:Static ln:Resources.Status}"
+                            HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
+                        <CheckBox IsEnabled="False" Name="chkItem_Sold" Content="{x:Static ln:Resources.Sold}" 
+                            HorizontalAlignment="Left" Margin="90,186,0,0" VerticalAlignment="Top"/>
+
+                        <Button Content="{x:Static ln:Resources.Submit}" Click="ClickItem_Submit"
+                            HorizontalAlignment="Left" Margin="90,233,0,0" VerticalAlignment="Top" Width="75"/>
+                    </Grid>
+
+                </Grid>
 
 
 
@@ -42,7 +104,7 @@
                             FontSize="13" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="#fafafa" >
+                <Grid>
                     <Label Content="Event Name" HorizontalAlignment="Left" Margin="55,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
                     <TextBox Name="txtEvent_EventName" Height="23" Margin="134,51,0,0" Width="150" 
                         HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
@@ -66,8 +128,6 @@
                     </Button>
                 </Grid>
             </TabItem>
-            <StackPanel Height="100" Width="100"/>
-            <StackPanel Height="100" Width="100"/>
 
         </TabControl>
     </Grid>

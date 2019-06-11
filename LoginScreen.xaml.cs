@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -21,50 +22,84 @@ namespace Auction
     /// </summary>
     public partial class LoginScreen : Window
     {
-        string conenctionParams = "SERVER=localhost;DATABASE=auction;UID=root;PASSWORD=root;";
 
+        /**
+         * Initialize Components of the Login Screen
+         */
         public LoginScreen()
         {
             InitializeComponent();
         }
 
-        private void BtnSubmit_Click(object sender, RoutedEventArgs e)
+
+
+        /**
+         * Function to carry out the login process for the particular user
+         */ 
+        private void ClickLogin_Submit(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Connecting Database!");
+            string username = txtLogin_Username.Text;
+            string pwd = txpLogin_Pwd.Password;
 
-            // Execute the Query
-            DataTable datatable = null;
-
-            using (var mySqlConnection = new MySqlConnection(conenctionParams))
+            // Validate Username
+            if(username.Trim()=="")
             {
-                mySqlConnection.Open();
-                Console.WriteLine("Connection Established!");
-                string query = "select userId, userName, pwd, fullName from users";
-                MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-                datatable = new DataTable();
-                datatable.Load(cmd.ExecuteReader());
+                string msg = "Please Enter Username";
+                Console.WriteLine(msg);
+                lblLogin_Message.Content = msg;
+                return;
+            }
+            // Validate Password
+            if (pwd.Trim() == "")
+            {
+                string msg = "Please Enter Password";
+                Console.WriteLine(msg);
+                lblLogin_Message.Content = msg;
+                return;
             }
 
-            // Execute the Query
-            try
+            IList<Users> users = getUsers(username, pwd);
+            if(users==null || users.Count==0)
             {
-                foreach (DataRow dataRow in datatable.Rows)
-                {
-                    foreach (var item in dataRow.ItemArray)
-                    {
-                        Console.Write(item + ",");
-                    }
-                    Console.WriteLine();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Data Processing Error: " + ex.ToString());
+                string msg = "Invalid Credentials";
+                Console.WriteLine(msg);
+                lblLogin_Message.Content = msg;
+                return;
             }
 
-            MainWindow mainWindow= new MainWindow();
-            mainWindow.Show();
+            Users user = users[0];
+
+            Console.WriteLine("Login Successfull:");
+            Console.WriteLine(user.toString());
+
+            // Create instance of the main window
+            MainWindow mainWindow = new MainWindow();
+
+            // Close the current login window
             this.Close();
+
+            // Show the main window
+            mainWindow.Show();
         }
+
+
+        /**
+         * Gets the user from collection with the given username and password
+         * 
+         * Parameters:
+         *   string:
+         *     username
+         *     
+         *   string:
+         *     pwd
+         */
+        public IList<Users> getUsers(string username, string pwd)
+        {
+            // Create Query upon establishing connection with the Database
+            string query = "username='" + username + "' AND pwd=MD5('" + pwd + "') ";
+            return UsersTableData.getUsers(query);
+        }
+
     }
+
 }

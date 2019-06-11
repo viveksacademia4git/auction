@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auction"
         mc:Ignorable="d" Background="#ffffff"
-        Title="Login" Height="300" FontSize="14" Width="300">
+        Title="Login" Height="360" FontSize="14" Width="300">
 
 
     <Border Background="#fafafa" Margin="10" CornerRadius="10">
@@ -14,17 +14,17 @@
                FontSize="18" HorizontalAlignment="Center" />
             <Separator></Separator>
             <Label Content="Username" Foreground="Black" />
-            <TextBox Name="txtUsername" Background="#ffffff"
-                     Foreground="#454c56" FontSize="14"
-                     Padding="2"/>
+            <TextBox Name="txtLogin_Username" Background="#ffffff"
+                Foreground="#454c56" FontSize="14" Padding="2"/>
             <Label Content="Password" Foreground="Black" />
-            <PasswordBox Name="txtPassword" Background="#ffffff"
-                     Foreground="#454c56" FontSize="14"
-                     Padding="2"/>
-            <Button Name="btnSubmit" Background="#eee"
-                     Foreground="Black" FontSize="14"
-                    Content="Submit" Margin="60 25 60 0" Padding="3"
-                    Click="BtnSubmit_Click" />
+            <PasswordBox Name="txpLogin_Pwd" Background="#ffffff"
+                Foreground="#454c56" FontSize="14" Padding="2"/>
+            <Button Name="BtnLogin_Submit" Background="#eee"
+                Foreground="Black" FontSize="14" Content="Submit"
+                Click="ClickLogin_Submit" Margin="60 25 60 0" Padding="3"/>
+            <Label Content="Enter Credentials" Padding="0,20,0,0"
+                Foreground="Red" HorizontalAlignment="Center"
+                Name="lblLogin_Message"/>
         </StackPanel>
     </Border>
 

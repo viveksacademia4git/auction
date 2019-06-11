@@ -124,15 +124,15 @@
     <value>Name</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Preis</value>
   </data>
   <data name="Sold" xml:space="preserve">
-    <value>Sold</value>
+    <value>Verkauft</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>Submit</value>
+    <value>Einreichen</value>
   </data>
 </root>
