@@ -96,7 +96,7 @@ namespace Auction
         public IList<Users> getUsers(string username, string pwd)
         {
             // Create Query upon establishing connection with the Database
-            string query = "username='" + username + "' AND pwd=MD5('" + pwd + "') ";
+            string query = "WHERE username='" + username + "' AND pwd=MD5('" + pwd + "') ";
             return UsersTableData.getUsers(query);
         }
 

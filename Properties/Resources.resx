@@ -117,14 +117,119 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AuctionItem" xml:space="preserve">
+    <value>Auction Item</value>
+  </data>
+  <data name="AuctionLocation" xml:space="preserve">
+    <value>Auction Location</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Availability</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>Buyer</value>
+  </data>
+  <data name="Capacity" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContactPerson" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="DefineMandatoryValues" xml:space="preserve">
+    <value>Define Mandatory Values</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EntryFee" xml:space="preserve">
+    <value>Entry Fee</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error Occurrred</value>
+  </data>
+  <data name="EventDashboard" xml:space="preserve">
+    <value>Event Dashboard</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>Event Name</value>
+  </data>
+  <data name="EventPlace" xml:space="preserve">
+    <value>Event Place</value>
+  </data>
+  <data name="EventTime" xml:space="preserve">
+    <value>Event Time</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="NoChangeInValue" xml:space="preserve">
+    <value>No Change In Value</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Place</value>
+  </data>
   <data name="Price" xml:space="preserve">
     <value>Price</value>
+  </data>
+  <data name="PricePerItem" xml:space="preserve">
+    <value>Price Per Item</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SearchAuctionItemByDescription" xml:space="preserve">
+    <value>Search Auction Item By Description</value>
+  </data>
+  <data name="SearchAuctionItemByName" xml:space="preserve">
+    <value>Search Auction Item By Name</value>
+  </data>
+  <data name="SearchAuctionItemByOwner" xml:space="preserve">
+    <value>Search Auction Item By Owner</value>
+  </data>
+  <data name="SearchAuctionItemByPrice" xml:space="preserve">
+    <value>Search Auction Item By Price</value>
+  </data>
+  <data name="SearchAuctionItemByQuantity" xml:space="preserve">
+    <value>Search Auction Item By Quantity</value>
+  </data>
+  <data name="SearchAuctionItemByType" xml:space="preserve">
+    <value>Search Auction Item By Type</value>
   </data>
   <data name="Sold" xml:space="preserve">
     <value>Sold</value>
@@ -134,5 +239,20 @@
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ValueNotDefined" xml:space="preserve">
+    <value>Value Not Defined</value>
+  </data>
+  <data name="ValueNotUpdatedError" xml:space="preserve">
+    <value>Value Not Updated Error</value>
+  </data>
+  <data name="Zip" xml:space="preserve">
+    <value>Zip</value>
   </data>
 </root>

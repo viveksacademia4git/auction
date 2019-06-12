@@ -7,19 +7,119 @@
         xmlns:ln="clr-namespace:Auction.Properties"
         mc:Ignorable="d"
         Title="Auction Management" 
-        Height="500" Width="850" FontSize="12" >
-    
-    <Grid >
-        
+        Height="650" Width="1250" FontSize="12" >
+
+    <Grid>
+
         <TabControl>
 
             <!-- DASHBORAD -->
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" >
-                        <TextBlock Text="Dashboard" FontSize="13" />
+                        <TextBlock Text="{x:Static ln:Resources.EventDashboard}" FontSize="13" />
                     </StackPanel>
                 </TabItem.Header>
+                <Grid>
+
+                    <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="1236" >
+                        <ListView x:Name="lbxEvent_Grid" HorizontalAlignment="Left" Margin="10,20,0,0" Background="#fafafa"
+                                 Height="549" Width="1216" Grid.IsSharedSizeScope="False" VerticalAlignment="Top"
+                                 MouseDoubleClick="DblClickItem_Grid" HorizontalContentAlignment="Left">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="BorderBrush" Value="LightGray" />
+                                    <Setter Property="BorderThickness" Value="0,1,0,0" />
+                                    <Setter Property="VerticalContentAlignment" Value="Top" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Resources>
+                                <Style x:Key="HeaderLeftStyle" TargetType="GridViewColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                </Style>
+                                <Style x:Key="HeaderRightStyle" TargetType="GridViewColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                                </Style>
+                            </ListView.Resources>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Complete}" Width="80"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox IsEnabled="False" Content="" IsChecked="{Binding conducted}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.EventName}" Width="150"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding eventName}" Width="150" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.ItemName}" Width="150"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding auctionItem.itemName}" Width="150" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.EventPlace}" Width="150"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding auctionLocation.locationName}" Width="150" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Address}" Width="170"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding auctionLocation.addressComplete}" Width="170" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Place}" Width="150"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding auctionLocation.place}" Width="150" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.EventTime}" Width="160"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding eventTime}" Width="160" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" Width="95"
+                                            HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Label Content="{Binding auctionItem.initialPrice}" Width="95" HorizontalContentAlignment="Right" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.EntryFee}" Width="95"
+                                            HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Label Content="{Binding registrationFee}" Width="95" HorizontalContentAlignment="Right" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </Grid>
             </TabItem>
 
 
@@ -28,66 +128,198 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" >
-                        <TextBlock Text="Auction Item" FontSize="13" />
+                        <TextBlock Text="{x:Static ln:Resources.AuctionItem}" FontSize="13" />
                     </StackPanel>
                 </TabItem.Header>
 
                 <Grid>
 
-                    <StackPanel HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="495">
-                        <TextBox x:Name="txtItem_SearchName" HorizontalAlignment="Left" Height="23" Margin="10,12,0,0"
-                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="Enter Auction Item Name" 
-                            TextChanged="txtItem_SearchName_Filter" Width="200"/>
-                        <ListView x:Name="lbxItem_Items" HorizontalAlignment="Left" Margin="10,10,0,0" 
-                                 VerticalAlignment="Top" Width="475" Grid.IsSharedSizeScope="False"
-                                  HorizontalContentAlignment="Left"  >
+                    <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="909" >
+
+                        <TextBox x:Name="txtItem_Filter_SearchName" HorizontalAlignment="Left" Height="19"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" Width="144" Margin="85,20,0,0"
+                            ToolTip="{x:Static ln:Resources.SearchAuctionItemByName}" 
+                            TextChanged="TxtChngItem_Filter_Search" />
+                        <TextBox x:Name="txtItem_Filter_SearchType" HorizontalAlignment="Left" Height="19"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" Width="140" Margin="229,20,0,0"
+                            ToolTip="{x:Static ln:Resources.SearchAuctionItemByType}" 
+                            TextChanged="TxtChngItem_Filter_Search" />
+                        <TextBox x:Name="txtItem_Filter_SearchInformation" HorizontalAlignment="Left"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" Width="200" 
+                            ToolTip="{x:Static ln:Resources.SearchAuctionItemByDescription}" 
+                            TextChanged="TxtChngItem_Filter_Search" Height="19" Margin="369,20,0,0"/>
+                        <TextBox x:Name="txtItem_Filter_SearchOwner" HorizontalAlignment="Left" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" Width="133"
+                            ToolTip="{x:Static ln:Resources.SearchAuctionItemByOwner}" 
+                            TextChanged="TxtChngItem_Filter_Search" Height="19" Margin="569,20,0,0"/>
+                        <TextBox x:Name="txtItem_Filter_SearchQuantity" HorizontalAlignment="Left" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" Width="81" 
+                            ToolTip="{x:Static ln:Resources.SearchAuctionItemByQuantity}" 
+                            TextChanged="TxtChngItem_Filter_Search" Height="19" Margin="702,20,0,0"
+                            RenderTransformOrigin="-0.036,0.579"/>
+                        <TextBox x:Name="txtItem_Filter_SearchPrice" HorizontalAlignment="Left"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" Width="85" 
+                            ToolTip="{x:Static ln:Resources.SearchAuctionItemByPrice}"
+                            TextChanged="TxtChngItem_Filter_Search" Height="19" Margin="783,20,0,0"
+                            RenderTransformOrigin="-0.036,0.579"/>
+
+                        <ListView x:Name="lbxItem_Grid" HorizontalAlignment="Left" Margin="10,39,0,0" Background="#fafafa"
+                                 Height="530" Width="889" Grid.IsSharedSizeScope="False" VerticalAlignment="Top"
+                                 MouseDoubleClick="DblClickItem_Grid" HorizontalContentAlignment="Left">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="BorderBrush" Value="LightGray" />
                                     <Setter Property="BorderThickness" Value="0,1,0,0" />
+                                    <Setter Property="VerticalContentAlignment" Value="Top" />
                                 </Style>
                             </ListView.ItemContainerStyle>
+                            <ListView.Resources>
+                                <Style x:Key="HeaderLeftStyle" TargetType="GridViewColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                </Style>
+                                <Style x:Key="HeaderRightStyle" TargetType="GridViewColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                                </Style>
+                            </ListView.Resources>
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="{x:Static ln:Resources.Sold}" Width="60" >
+                                    <GridViewColumn Header="{x:Static ln:Resources.Sold}" Width="70"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <CheckBox IsChecked="{Binding sold}" IsEnabled="False" Content=""
-                                                    Foreground="{Binding sold?red:black}" />
+                                                <CheckBox IsEnabled="False" Content="" IsChecked="{Binding sold}" />
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="{x:Static ln:Resources.Name}" DisplayMemberBinding="{Binding itemName}" Width="150"  />
-                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" DisplayMemberBinding="{Binding initialPrice}" Width="77" />
-                                    <GridViewColumn Header="{x:Static ln:Resources.Information}" DisplayMemberBinding="{Binding additionalInfo}" Width="180" />
+                                    <GridViewColumn Header="{x:Static ln:Resources.Name}" Width="145"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding itemName}" Width="145" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Type}" Width="140"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding itemType}" Width="140" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Description}" Width="200"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding additionalInfo}" Width="185" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Owner}" Width="135"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding owner}" Width="135" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Quantity}" Width="80"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Label Content="{Binding quantity}" Width="80"  />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" Width="85"
+                                            HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Label Content="{Binding initialPrice}" Width="75" HorizontalContentAlignment="Right" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                    </StackPanel>
 
-                    <Grid Background="#fafafa" Margin="500,0,0,0" >
+                    </Grid>
+
+                    <Grid Background="#f5f5f5" Margin="914,0,0,0" DataContext="{Binding Path=aItem}" >
+
+                        <Label Content="{x:Static ln:Resources.AuctionItem}" HorizontalAlignment="Left" 
+                            HorizontalContentAlignment="Center" Margin="49,15,0,0"
+                            VerticalAlignment="Top" RenderTransformOrigin="-0.632,-0.538"
+                            Width="242" FontSize="16" FontWeight="Bold"/>
+
+                        <Button Content="{x:Static ln:Resources.Copy}" HorizontalAlignment="Left" 
+                            Margin="250,0,0,0" VerticalAlignment="Top" Width="60"
+                            Click="ClickItem_Copy" Visibility="Hidden"/>
+
                         <Label Content="{x:Static ln:Resources.Name}" 
-                            HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
-                        <TextBox Name="txtItem_Name" HorizontalAlignment="Left" Height="23" Margin="90,40,0,0" 
-                            Width="200" VerticalContentAlignment="Center" VerticalAlignment="Top" />
-                        <Label Content="{x:Static ln:Resources.Price}"
-                            HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
-                        <TextBox Name="txtItem_Price" HorizontalAlignment="Left" Height="23" Margin="90,80,0,0" 
-                            Width="80" VerticalContentAlignment="Center" VerticalAlignment="Top" 
-                            HorizontalContentAlignment="Right" />
-                        <Label Content="$" HorizontalAlignment="Left" Margin="170,78,0,0" VerticalAlignment="Top" 
+                            HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Name" HorizontalAlignment="Left" Height="23" Margin="120,72,0,0" IsReadOnly="{Binding sold}"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding itemName}" />
+
+                        <Label Content="{x:Static ln:Resources.Type}" 
+                            HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox x:Name="txtItem_Type" HorizontalAlignment="Left" Height="23" Margin="120,122,0,0" IsReadOnly="{Binding sold}"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding itemType}" />
+
+                        <Label Content="{x:Static ln:Resources.Description}"
+                            HorizontalAlignment="Left" Margin="11,170,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Information" HorizontalAlignment="Left" Height="73" Margin="120,172,0,0" IsReadOnly="{Binding sold}"
+                            Width="170" VerticalAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding additionalInfo}" />
+
+                        <Label Content="{x:Static ln:Resources.Owner}"
+                            HorizontalAlignment="Left" Margin="11,270,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Owner" HorizontalAlignment="Left" Height="23" Margin="120,272,0,0" IsReadOnly="{Binding sold}"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding owner}" />
+
+                        <Label Content="{x:Static ln:Resources.Quantity}"
+                            HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Quantity" HorizontalAlignment="Left" Height="23" Margin="120,322,0,0" IsReadOnly="{Binding sold}"
+                            Width="70" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding quantity}" 
+                            LostFocus="FocusLostInt" />
+
+                        <Label Content="{x:Static ln:Resources.PricePerItem}"
+                            HorizontalAlignment="Left" Margin="11,370,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtItem_Price" HorizontalAlignment="Left" Height="23" Margin="120,372,0,0" IsReadOnly="{Binding sold}"
+                            Width="70" VerticalContentAlignment="Center" VerticalAlignment="Top" 
+                            HorizontalContentAlignment="Right" Text="{Binding initialPrice}" LostFocus="FocusLostInt" />
+                        <Label Content="$" HorizontalAlignment="Left" Margin="190,370,0,0" VerticalAlignment="Top" 
                             Width="20" FontSize="13" HorizontalContentAlignment="Left" />
-                        <Label Content="{x:Static ln:Resources.Information}"
-                            HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
-                        <TextBox Name="txtItem_Information" HorizontalAlignment="Left" Height="50" Margin="90,120,0,0" 
-                            Width="200" VerticalAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True" />
+
                         <Label  Content="{x:Static ln:Resources.Status}"
-                            HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Right"/>
+                            HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
                         <CheckBox IsEnabled="False" Name="chkItem_Sold" Content="{x:Static ln:Resources.Sold}" 
-                            HorizontalAlignment="Left" Margin="90,186,0,0" VerticalAlignment="Top"/>
+                            HorizontalAlignment="Left" Margin="120,425,0,0" VerticalAlignment="Top"
+                            IsChecked="{Binding sold}" Width="90" />
 
                         <Button Content="{x:Static ln:Resources.Submit}" Click="ClickItem_Submit"
-                            HorizontalAlignment="Left" Margin="90,233,0,0" VerticalAlignment="Top" Width="75"/>
+                            HorizontalAlignment="Left" Margin="22,484,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+                        <Button Content="{x:Static ln:Resources.Reset}" Click="ClickItem_Reset"
+                            HorizontalAlignment="Left" Margin="178,484,0,0" VerticalAlignment="Top" Width="120" Height="26" RenderTransformOrigin="0.7,-1.077"/>
+
+                        <Label Name="lblItem_Success" HorizontalAlignment="Left" Margin="22,533,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.Success}" Visibility="Hidden" Foreground="Green" />
+                        <Label Name="lblItem_NoChangeInValue" HorizontalAlignment="Left" Margin="22,533,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.NoChangeInValue}" Visibility="Hidden" Foreground="Orange" />
+                        <Label Name="lblItem_Error" HorizontalAlignment="Left" Margin="22,533,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.Error}" Visibility="Hidden" Foreground="Red" />
+                        <Label Name="lblItem_ValueNotDefined" HorizontalAlignment="Left" Margin="22,533,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.ValueNotDefined}" Visibility="Hidden" Foreground="Red" />
+                        <Label Name="lblItem_DefineMandatoryValues" HorizontalAlignment="Left" Margin="22,533,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.DefineMandatoryValues}" Visibility="Hidden" Foreground="Red" />
+                        <Label Name="lblItem_ValueNotUpdatedError" HorizontalAlignment="Left" Margin="22,533,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.ValueNotUpdatedError}" Visibility="Hidden" Foreground="Red" />
+
                     </Grid>
 
                 </Grid>
@@ -100,33 +332,200 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Auction Event"
+                        <TextBlock Text="{x:Static ln:Resources.AuctionLocation}"
                             FontSize="13" />
                     </StackPanel>
                 </TabItem.Header>
+
+
                 <Grid>
-                    <Label Content="Event Name" HorizontalAlignment="Left" Margin="55,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <TextBox Name="txtEvent_EventName" Height="23" Margin="134,51,0,0" Width="150" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <Label Content="Item Name" HorizontalAlignment="Left" Margin="60,105,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <TextBox Name="txtEvent_ItemName" Height="23" Margin="134,112,0,0" Width="150" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <Label Content="Location" HorizontalAlignment="Left" Margin="74,162,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <TextBox Name="txtEvent_Location" Height="23" Margin="134,170,0,0" Width="150" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <Label Content="Time" HorizontalAlignment="Left" Margin="93,223,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <TextBox Name="txtEvent_Date" Height="23" Margin="134,230,0,0" Width="70" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <TextBox Name="txtEvent_Time" Height="23" Margin="224,230,0,0" Width="60" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <Label Content="Registration Fee" HorizontalAlignment="Left" Margin="34,285,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <TextBox Name="txtEvent_RegistrationFees" Height="23" Margin="134,293,0,0" Width="150" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <Button Name="btnEvent_Submit" Height="24" Margin="134,348,0,0" Width="150" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" >
-                        Submit
-                    </Button>
+
+                    <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="909" >
+
+                        <TextBox x:Name="txtLocation_Filter_SearchName" HorizontalAlignment="Left" Height="19" Margin="10,20,0,0"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByName}" 
+                            TextChanged="TxtChngLocation_Filter_Search" Width="133"/>
+                        <TextBox x:Name="txtLocation_Filter_SearchAddress" HorizontalAlignment="Left" Height="19" Margin="143,20,0,0"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByType}" 
+                            TextChanged="TxtChngLocation_Filter_Search" Width="141"/>
+                        <TextBox x:Name="txtLocation_Filter_SearchPlace" HorizontalAlignment="Left" Height="19" Margin="284,20,0,0"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByDescription}" 
+                            TextChanged="TxtChngLocation_Filter_Search" Width="129"/>
+                        <TextBox x:Name="txtLocation_Filter_SearchCapacity" HorizontalAlignment="Left" Height="19" Margin="413,20,0,0"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByOwner}" 
+                            TextChanged="TxtChngLocation_Filter_Search" Width="70"/>
+                        <TextBox x:Name="txtLocation_Filter_SearchAvailability" HorizontalAlignment="Left" Height="19" Margin="483,20,0,0"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByQuantity}" 
+                            TextChanged="TxtChngLocation_Filter_Search" Width="181" RenderTransformOrigin="-0.036,0.579"/>
+                        <TextBox x:Name="txtLocation_Filter_SearchContactPerson" HorizontalAlignment="Left" Height="19" Margin="664,20,0,0"
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByQuantity}" 
+                            TextChanged="TxtChngLocation_Filter_Search" Width="100" RenderTransformOrigin="-0.036,0.579"/>
+
+                        <ListView x:Name="lbxLocation_Grid" HorizontalAlignment="Left" Margin="10,39,0,0" Background="#fafafa"
+                                 Height="530" Width="889" Grid.IsSharedSizeScope="False" VerticalAlignment="Top"
+                                 MouseDoubleClick="DblClickLocation_Grid" HorizontalContentAlignment="Left">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="BorderBrush" Value="LightGray" />
+                                    <Setter Property="BorderThickness" Value="0,1,0,0" />
+                                    <Setter Property="VerticalContentAlignment" Value="Top" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Resources>
+                                <Style x:Key="HeaderLeftStyle" TargetType="GridViewColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                </Style>
+                                <Style x:Key="HeaderRightStyle" TargetType="GridViewColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                                </Style>
+                            </ListView.Resources>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Name}" Width="130"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding locationName}" Width="130" TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Address}" Width="140"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding addressComplete}" Width="140" TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Place}" Width="130"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding place}" Width="130" TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Capacity}" Width="70"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding capacity}" Width="70" TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Availability}" Width="180"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding availability}" Width="165" TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.ContactPerson}" Width="100"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding contactPerson}" Width="100" TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Contact}" Width="120"
+                                            HeaderContainerStyle="{StaticResource HeaderLeftStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding contact}" Width="110" TextWrapping="Wrap" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+
+                    <Grid Background="#f5f5f5" Margin="914,0,0,0" DataContext="{Binding Path=aLocation}" >
+
+                        <Label Content="{x:Static ln:Resources.AuctionLocation}" HorizontalAlignment="Left" 
+                            HorizontalContentAlignment="Center" Margin="35,15,0,0"
+                            VerticalAlignment="Top" RenderTransformOrigin="-0.632,-0.538"
+                            Width="242" FontSize="16" FontWeight="Bold"/>
+
+                        <Button Content="{x:Static ln:Resources.Copy}" HorizontalAlignment="Left" 
+                            Margin="250,0,0,0" VerticalAlignment="Top" Width="60"
+                            Click="ClickItem_Copy" Visibility="Hidden" />
+
+                        <Label Content="{x:Static ln:Resources.Name}" 
+                            HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtLocation_Name" HorizontalAlignment="Left" Height="23" Margin="120,72,0,0"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding locationName}" />
+
+                        <Label Content="{x:Static ln:Resources.Address}" 
+                            HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox x:Name="txtLocation_Address" HorizontalAlignment="Left" Height="23" Margin="120,122,0,0"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding address}" />
+
+                        <Label Content="{x:Static ln:Resources.Place}"
+                            HorizontalAlignment="Left" Margin="11,170,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtLocation_Place" HorizontalAlignment="Left" Height="24" Margin="120,172,0,0"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding place}" />
+
+                        <Label Content="{x:Static ln:Resources.Zip}"
+                            HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtLocation_Zip" HorizontalAlignment="Left" Height="24" Margin="120,222,0,0"
+                            Width="43" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding zipcode}" />
+
+                        <Label Content="{x:Static ln:Resources.Capacity}"
+                            HorizontalAlignment="Left" Margin="168,222,0,0" VerticalAlignment="Top" Width="79" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtLocation_Capacity" HorizontalAlignment="Left" Height="24" Margin="252,222,0,0"
+                            Width="38" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding capacity}" />
+
+                        <Label Content="{x:Static ln:Resources.ContactPerson}"
+                            HorizontalAlignment="Left" Margin="11,270,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtLocation_ContactPerson" HorizontalAlignment="Left" Height="24" Margin="120,272,0,0"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding contactPerson}"/>
+
+                        <Label  Content="{x:Static ln:Resources.Phone}"
+                            HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtLocation_Phone" HorizontalAlignment="Left" Height="24" Margin="120,322,0,0"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding phone}"/>
+
+                        <Label  Content="{x:Static ln:Resources.Email}"
+                            HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox x:Name="txtLocation_Email" HorizontalAlignment="Left" Height="24" Margin="120,372,0,0"
+                            Width="170" VerticalContentAlignment="Center" VerticalAlignment="Top" Text="{Binding email}"/>
+
+                        <Label Content="{x:Static ln:Resources.Availability}"
+                            HorizontalAlignment="Left" Margin="11,420,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="txtLocation_Availability" HorizontalAlignment="Left" Height="53" Margin="120,422,0,0"
+                            Width="170" VerticalAlignment="Top" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding availability}" />
+
+                        <Button Content="{x:Static ln:Resources.Submit}" Click="ClickLocation_Submit"
+                            HorizontalAlignment="Left" Margin="22,500,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+                        <Button Content="{x:Static ln:Resources.Reset}" Click="ClickLocation_Reset"
+                            HorizontalAlignment="Left" Margin="178,500,0,0" VerticalAlignment="Top" Width="120" Height="26" RenderTransformOrigin="0.7,-1.077"/>
+
+                        <Label Name="lblLocation_Success" HorizontalAlignment="Left" Margin="22,545,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.Success}" Visibility="Hidden" Foreground="Green" />
+                        <Label Name="lblLocation_NoChangeInValue" HorizontalAlignment="Left" Margin="22,545,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.NoChangeInValue}" Visibility="Hidden" Foreground="Orange" />
+                        <Label Name="lblLocation_Error" HorizontalAlignment="Left" Margin="22,545,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.Error}" Visibility="Hidden" Foreground="Red" />
+                        <Label Name="lblLocation_ValueNotDefined" HorizontalAlignment="Left" Margin="22,545,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.ValueNotDefined}" Visibility="Hidden" Foreground="Red" />
+                        <Label Name="lblLocation_DefineMandatoryValues" HorizontalAlignment="Left" Margin="22,545,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.DefineMandatoryValues}" Visibility="Hidden" Foreground="Red" />
+                        <Label Name="lblLocation_ValueNotUpdatedError" HorizontalAlignment="Left" Margin="22,545,0,0" 
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            Content="{x:Static ln:Resources.ValueNotUpdatedError}" Visibility="Hidden" Foreground="Red" />
+
+                    </Grid>
+
                 </Grid>
+
             </TabItem>
 
         </TabControl>
