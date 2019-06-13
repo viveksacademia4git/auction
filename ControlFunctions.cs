@@ -22,7 +22,7 @@ namespace Auction
         public ObservableCollection<AuctionEvent> auctionEvents;
 
         public ControlFunctions(int userType) {
-            controlsUtil = new ControlsUtil(userType);
+            //controlsUtil = new ControlsUtil(userType);
             // controlsUtil.chkControlItemSold(chkItem_Sold);
 
             string queryItems = " ORDER BY itemId DESC LIMIT 20 ";
@@ -56,6 +56,8 @@ namespace Auction
             }
             if (executeQueryRowCount < 1)
                 return -1;
+
+            searchEvent();
             return auctionItemSelectedIndex + 1;
         }
 
@@ -88,6 +90,8 @@ namespace Auction
             }
             if (executeQueryRowCount < 1)
                 return -1;
+
+            searchEvent();
             return auctionLocationSelectedIndex+1;
         }
 
@@ -95,9 +99,19 @@ namespace Auction
         {
             string queryItems = " ORDER BY locationId DESC LIMIT 20 ";
             auctionLocations.Clear();
-            var als = new ObservableCollection<AuctionLocation>(AuctionLocationTableData.getAuctionLocations(al, queryItems));
+            ObservableCollection<AuctionLocation> als;
+            als = new ObservableCollection<AuctionLocation>(AuctionLocationTableData.getAuctionLocations(al, queryItems));
             foreach (AuctionLocation alTemp in als)
                 auctionLocations.Add(alTemp);
+            Console.WriteLine(auctionLocations.Count);
+        }
+
+        public void searchEvent() {
+            string queryEvents = " ORDER BY eventId DESC LIMIT 20 ";
+            var aEvents = new ObservableCollection<AuctionEvent>(AuctionEventTableData.getAuctionEvent(queryEvents));
+            auctionEvents.Clear();
+            foreach (AuctionEvent aEvent in aEvents)
+                auctionEvents.Add(aEvent);
             Console.WriteLine(auctionLocations.Count);
         }
     }

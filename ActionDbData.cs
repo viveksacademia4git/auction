@@ -96,7 +96,7 @@ namespace Auction
         }
 
 
-        private static int executeUpdate(string query, string[] columns, object[] values) {
+        public static int executeUpdate(string query, string[] columns, object[] values) {
             int count = 0;
 
             Console.WriteLine("Connecting Database!");
@@ -123,7 +123,7 @@ namespace Auction
         }
 
 
-        protected static int insertRecord(string table, string[] columns, object[] values) {
+        public static int insertRecord(string table, string[] columns, object[] values) {
             string query = "@" + columns[0];
             for (int i = 1; i < columns.Length; i++)
                 query += ", @" + columns[i];

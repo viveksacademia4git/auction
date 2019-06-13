@@ -23,9 +23,13 @@
                 <Grid>
 
                     <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="1236" >
-                        <ListView x:Name="lbxEvent_Grid" HorizontalAlignment="Left" Margin="10,20,0,0" Background="#fafafa"
-                                 Height="549" Width="1216" Grid.IsSharedSizeScope="False" VerticalAlignment="Top"
-                                 MouseDoubleClick="DblClickItem_Grid" HorizontalContentAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="79*"/>
+                            <ColumnDefinition Width="333*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView x:Name="lbxEvent_Grid" HorizontalAlignment="Left" Margin="10,35,0,0" Background="#fafafa"
+                                 Height="540" Width="1210" Grid.IsSharedSizeScope="False" VerticalAlignment="Top"
+                                 HorizontalContentAlignment="Left" Grid.ColumnSpan="2">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="BorderBrush" Value="LightGray" />
@@ -99,25 +103,27 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="{x:Static ln:Resources.EntryFee}" Width="95"
+                                    <GridViewColumn Header="{x:Static ln:Resources.EntryFee}" Width="85"
                                             HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Label Content="{Binding registrationFee}" Width="95" HorizontalContentAlignment="Right" />
+                                                <Label Content="{Binding registrationFee}" Width="85" HorizontalContentAlignment="Right" />
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" Width="95"
+                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" Width="85"
                                             HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Label Content="{Binding auctionItem.initialPrice}" Width="95" HorizontalContentAlignment="Right" />
+                                                <Label Content="{Binding auctionItem.initialPrice}" Width="75" HorizontalContentAlignment="Right" />
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
+                        <Button Name="btnEvent_Add" Click="ClickEvent_Add" Content="Add" 
+                            HorizontalAlignment="Left" Margin="910,5,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -125,7 +131,7 @@
 
 
             <!-- AUCTION ITEM -->
-            <TabItem>
+            <TabItem Name="tabAuctionItem" >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="{x:Static ln:Resources.AuctionItem}" FontSize="13" />
@@ -254,7 +260,7 @@
 
                         <Button Content="{x:Static ln:Resources.Copy}" HorizontalAlignment="Left" 
                             Margin="250,0,0,0" VerticalAlignment="Top" Width="60"
-                            Click="ClickItem_Copy" Visibility="Hidden"/>
+                            Click="ClickItem_Copy"/>
 
                         <Label Content="{x:Static ln:Resources.Name}" 
                             HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
@@ -302,22 +308,22 @@
                             HorizontalAlignment="Left" Margin="178,484,0,0" VerticalAlignment="Top" Width="120" Height="26" RenderTransformOrigin="0.7,-1.077"/>
 
                         <Label Name="lblItem_Success" HorizontalAlignment="Left" Margin="22,533,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.Success}" Visibility="Hidden" Foreground="Green" />
                         <Label Name="lblItem_NoChangeInValue" HorizontalAlignment="Left" Margin="22,533,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.NoChangeInValue}" Visibility="Hidden" Foreground="Orange" />
                         <Label Name="lblItem_Error" HorizontalAlignment="Left" Margin="22,533,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.Error}" Visibility="Hidden" Foreground="Red" />
                         <Label Name="lblItem_ValueNotDefined" HorizontalAlignment="Left" Margin="22,533,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.ValueNotDefined}" Visibility="Hidden" Foreground="Red" />
                         <Label Name="lblItem_DefineMandatoryValues" HorizontalAlignment="Left" Margin="22,533,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.DefineMandatoryValues}" Visibility="Hidden" Foreground="Red" />
                         <Label Name="lblItem_ValueNotUpdatedError" HorizontalAlignment="Left" Margin="22,533,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.ValueNotUpdatedError}" Visibility="Hidden" Foreground="Red" />
                         <Label Content="*" 
                             HorizontalAlignment="Left" Margin="290,72,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
@@ -347,7 +353,7 @@
             </TabItem>
 
             <!-- AUCTION LOCATION -->
-            <TabItem>
+            <TabItem Name="tabAuctionLocation">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{x:Static ln:Resources.AuctionLocation}"
@@ -469,7 +475,7 @@
 
                         <Button Content="{x:Static ln:Resources.Copy}" HorizontalAlignment="Left" 
                             Margin="250,0,0,0" VerticalAlignment="Top" Width="60"
-                            Click="ClickItem_Copy" Visibility="Hidden" />
+                            Click="ClickLocation_Copy" />
 
                         <Label Content="{x:Static ln:Resources.Name}" 
                             HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
@@ -522,22 +528,22 @@
                             HorizontalAlignment="Left" Margin="178,500,0,0" VerticalAlignment="Top" Width="120" Height="26" RenderTransformOrigin="0.7,-1.077"/>
 
                         <Label Name="lblLocation_Success" HorizontalAlignment="Left" Margin="22,545,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.Success}" Visibility="Hidden" Foreground="Green" />
                         <Label Name="lblLocation_NoChangeInValue" HorizontalAlignment="Left" Margin="22,545,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.NoChangeInValue}" Visibility="Hidden" Foreground="Orange" />
                         <Label Name="lblLocation_Error" HorizontalAlignment="Left" Margin="22,545,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.Error}" Visibility="Hidden" Foreground="Red" />
                         <Label Name="lblLocation_ValueNotDefined" HorizontalAlignment="Left" Margin="22,545,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.ValueNotDefined}" Visibility="Hidden" Foreground="Red" />
                         <Label Name="lblLocation_DefineMandatoryValues" HorizontalAlignment="Left" Margin="22,545,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.DefineMandatoryValues}" Visibility="Hidden" Foreground="Red" />
                         <Label Name="lblLocation_ValueNotUpdatedError" HorizontalAlignment="Left" Margin="22,545,0,0" 
-                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
+                            VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="13" 
                             Content="{x:Static ln:Resources.ValueNotUpdatedError}" Visibility="Hidden" Foreground="Red" />
                         <Label Content="{x:Static ln:Resources.Name}" 
                             HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>

@@ -73,7 +73,7 @@ namespace Auction
             Console.WriteLine(user.toString());
 
             // Create instance of the main window
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(user);
 
             // Close the current login window
             this.Close();

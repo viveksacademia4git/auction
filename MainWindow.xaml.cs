@@ -29,8 +29,8 @@ namespace Auction
         AuctionLocation auctionLocation;
         AuctionEvent auctionEvent;
 
-
         AuctionItem auctionItemCopy;
+        AuctionLocation auctionLocationCopy;
 
         int auctionItemSelectedIndex = -1;
         int auctionLocationSelectedIndex = -1;
@@ -56,6 +56,13 @@ namespace Auction
             // Data Context Objects
             dataCxt = new DataCxt { aItem = new AuctionItem(), aLocation = new AuctionLocation() };
             this.DataContext = dataCxt;
+
+            if(userType>2)
+            {
+                btnEvent_Add.Visibility = Visibility.Hidden;
+                tabAuctionItem.Visibility = Visibility.Hidden;
+                tabAuctionLocation.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Item_Reset(AuctionItem ai) {
@@ -156,8 +163,9 @@ namespace Auction
             controlFunctions.searchItem(ai);
         }
 
-        public void ClickItem_Copy(object sender, RoutedEventArgs e) {
-            auctionItemCopy = new AuctionItem().setAuctionItem(auctionItem);
+        public void ClickItem_Copy(object sender, RoutedEventArgs e){
+            if (auctionItem != null)
+                auctionItemCopy = new AuctionItem(auctionItem);
         }
 
 
@@ -221,6 +229,11 @@ namespace Auction
             controlFunctions.searchLocation(al);
         }
 
+        public void ClickLocation_Copy(object sender, RoutedEventArgs e) {
+            if(auctionLocation!=null)
+                auctionLocationCopy = new AuctionLocation(auctionLocation);
+        }
+
 
 
         /* *************************** CODE RELATED TO AUCTION Event *************************** */
@@ -231,6 +244,18 @@ namespace Auction
             auctionEventSelectedIndex = lbxEvent_Grid.SelectedIndex;
             // TODO - Need to add logic to show the data somewhere
             //Item_Reset(new AuctionEvent().setAuctionItem(auctionItem));
+        }
+
+        public void ClickEvent_Add(object sender, RoutedEventArgs e) {
+            // Show the main window
+            AddEvent addEvent = new AddEvent(auctionItemCopy, auctionLocationCopy, this);
+            addEvent.Show();
+        }
+
+        public void clearCopyItem() {
+            auctionItemCopy = null;
+            auctionLocationCopy = null;
+            controlFunctions.searchEvent();
         }
     }
 
