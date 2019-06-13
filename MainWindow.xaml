@@ -99,19 +99,19 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" Width="95"
-                                            HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <Label Content="{Binding auctionItem.initialPrice}" Width="95" HorizontalContentAlignment="Right" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
                                     <GridViewColumn Header="{x:Static ln:Resources.EntryFee}" Width="95"
                                             HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <Label Content="{Binding registrationFee}" Width="95" HorizontalContentAlignment="Right" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{x:Static ln:Resources.Price}" Width="95"
+                                            HeaderContainerStyle="{StaticResource HeaderRightStyle}" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Label Content="{Binding auctionItem.initialPrice}" Width="95" HorizontalContentAlignment="Right" />
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>

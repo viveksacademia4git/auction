@@ -67,6 +67,7 @@ namespace Auction
         private void Location_Reset(AuctionLocation al) {
             dataCxt = new DataCxt { aItem = dataCxt.aItem, aLocation = al };
             this.DataContext = dataCxt;
+            Location_ResetLbl();
         }
 
         private void Item_ResetLbl() {

@@ -195,7 +195,7 @@ namespace Auction
             phone = al.phone;
             email = al.email;
             //deleteFlag = al.deleteFlag;
-            contact = (phone != null && phone != null ? phone + ", " : "") + (email ?? "");
+            contact = (blank(phone) ? "" : phone + ", ") + (blank(email) ? "" : email);
             addressComplete = address + "\n" + zipcode;
             return this;
         }
