@@ -336,7 +336,7 @@
                         <Label Content="*" 
                             HorizontalAlignment="Left" Margin="290,272,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
-                            HorizontalAlignment="Left" Margin="290,185,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                            HorizontalAlignment="Left" Margin="290,176,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
 
                     </Grid>
 
@@ -554,7 +554,7 @@
                         <Label Content="*" 
                             HorizontalAlignment="Left" Margin="290,272,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
-                            HorizontalAlignment="Left" Margin="290,428,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                            HorizontalAlignment="Left" Margin="290,424,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
 
                     </Grid>
 

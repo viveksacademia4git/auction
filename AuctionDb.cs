@@ -164,7 +164,7 @@ namespace Auction
             phone = row.Field<string>("phone");
             email = row.Field<string>("email");
             //deleteFlag = row.Field<bool>("deleteFlag");
-            contact = (phone != null && phone != null ? phone + ", " : "") + (email ?? "");
+            contact = (blank(phone)? "" : phone + ", ") + (blank(email) ? "" : email);
             addressComplete = address + "\n" + zipcode;
         }
 
@@ -202,7 +202,7 @@ namespace Auction
 
         public bool mandatoryCheck()
         {
-            if (blank(locationName) || blank(address) || blank(place) || blank(zipcode))
+            if (blank(locationName) || blank(address) || blank(place) || blank(zipcode) || blank(availability))
                 return false;
             if (capacity < 1)
                 return false;
