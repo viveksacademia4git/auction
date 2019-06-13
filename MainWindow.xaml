@@ -322,7 +322,7 @@
                         <Label Content="*" 
                             HorizontalAlignment="Left" Margin="290,72,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
-                            HorizontalAlignment="Left" Margin="210,372,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                            HorizontalAlignment="Left" Margin="204,373,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
                             HorizontalAlignment="Left" Margin="290,72,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
@@ -550,7 +550,7 @@
                         <Label Content="*" 
                             HorizontalAlignment="Left" Margin="290,222,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
-                            HorizontalAlignment="Left" Margin="163,220,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                            HorizontalAlignment="Left" Margin="163,223,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
                             HorizontalAlignment="Left" Margin="290,272,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
                         <Label Content="*" 
