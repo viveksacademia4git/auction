@@ -45,7 +45,7 @@ namespace Auction
         }
 
         private void initiateComponent(int userType) {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de");
             InitializeComponent();
             // Enable-Disable and Show-Hide Windows Components based on the User Privileges
             controlFunctions = new ControlFunctions(userType);

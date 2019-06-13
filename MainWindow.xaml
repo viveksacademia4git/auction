@@ -319,6 +319,24 @@
                         <Label Name="lblItem_ValueNotUpdatedError" HorizontalAlignment="Left" Margin="22,533,0,0" 
                             VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
                             Content="{x:Static ln:Resources.ValueNotUpdatedError}" Visibility="Hidden" Foreground="Red" />
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,72,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="210,372,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,72,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,72,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label 
+                            HorizontalAlignment="Left" Margin="290,170,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="190,322,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,122,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,272,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,185,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
 
                     </Grid>
 
@@ -521,6 +539,22 @@
                         <Label Name="lblLocation_ValueNotUpdatedError" HorizontalAlignment="Left" Margin="22,545,0,0" 
                             VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" FontSize="14"
                             Content="{x:Static ln:Resources.ValueNotUpdatedError}" Visibility="Hidden" Foreground="Red" />
+                        <Label Content="{x:Static ln:Resources.Name}" 
+                            HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="105" HorizontalContentAlignment="Right"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,72,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,120,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,170,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,222,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="163,220,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,272,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
+                        <Label Content="*" 
+                            HorizontalAlignment="Left" Margin="290,428,0,0" VerticalAlignment="Top" Width="16" HorizontalContentAlignment="Left"/>
 
                     </Grid>
 
