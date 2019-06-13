@@ -164,8 +164,10 @@ namespace Auction
         }
 
         public void ClickItem_Copy(object sender, RoutedEventArgs e){
-            if (auctionItem != null)
+            if (auctionItem != null) {
                 auctionItemCopy = new AuctionItem(auctionItem);
+                Item_Reset(new AuctionItem());
+            }
         }
 
 
@@ -230,8 +232,10 @@ namespace Auction
         }
 
         public void ClickLocation_Copy(object sender, RoutedEventArgs e) {
-            if(auctionLocation!=null)
+            if(auctionLocation!=null) { 
                 auctionLocationCopy = new AuctionLocation(auctionLocation);
+                Location_Reset(new AuctionLocation());
+            }
         }
 
 

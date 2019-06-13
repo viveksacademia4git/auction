@@ -123,7 +123,7 @@
                             </ListView.View>
                         </ListView>
                         <Button Name="btnEvent_Add" Click="ClickEvent_Add" Content="Add" 
-                            HorizontalAlignment="Left" Margin="910,5,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                            HorizontalAlignment="Left" Margin="908,5,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
                     </Grid>
                 </Grid>
             </TabItem>
