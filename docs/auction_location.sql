@@ -44,7 +44,7 @@ CREATE TABLE `location` (
 
 LOCK TABLES `location` WRITE;
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
-INSERT INTO `location` VALUES (1,'Chester Auditorium 1','Bonhoeffer Str. 11','Everyday: 9:00 to 18:00','Heidelberg','69123',50,'Chester Hotel',NULL,NULL,0),(2,'SRH Auditorium','Ludwig Guttmann Str. 6','Weekends: 9:00 to 18:00','Heidelberg','69123',100,'Marie Blach',NULL,'srh@srh.de',0);
+INSERT INTO `location` VALUES (1,'Chester Auditorium 1','Bonhoeffer Str. 11','Everyday: 9:00 to 18:00','Heidelberg','69123',50,'Chester Hotel',NULL,NULL,0),(2,'SRH Auditorium','Ludwig Guttmann Str. 6','Weekends: 9:00 to 18:00','Heidelberg','69123',100,'SRH Office',NULL,'srh@srh.de',0);
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-13 10:09:38
+-- Dump completed on 2019-06-13 10:26:17

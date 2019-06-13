@@ -343,22 +343,22 @@
                     <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="909" >
 
                         <TextBox x:Name="txtLocation_Filter_SearchName" HorizontalAlignment="Left" Height="19" Margin="10,20,0,0"
-                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByName}" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchLocationByName}" 
                             TextChanged="TxtChngLocation_Filter_Search" Width="133"/>
                         <TextBox x:Name="txtLocation_Filter_SearchAddress" HorizontalAlignment="Left" Height="19" Margin="143,20,0,0"
-                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByType}" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchLocationByAddress}" 
                             TextChanged="TxtChngLocation_Filter_Search" Width="141"/>
                         <TextBox x:Name="txtLocation_Filter_SearchPlace" HorizontalAlignment="Left" Height="19" Margin="284,20,0,0"
-                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByDescription}" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchLocationByPlace}" 
                             TextChanged="TxtChngLocation_Filter_Search" Width="129"/>
                         <TextBox x:Name="txtLocation_Filter_SearchCapacity" HorizontalAlignment="Left" Height="19" Margin="413,20,0,0"
-                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByOwner}" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchLocationByCapacity}" 
                             TextChanged="TxtChngLocation_Filter_Search" Width="70"/>
                         <TextBox x:Name="txtLocation_Filter_SearchAvailability" HorizontalAlignment="Left" Height="19" Margin="483,20,0,0"
-                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByQuantity}" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchLocationByAvailability}" 
                             TextChanged="TxtChngLocation_Filter_Search" Width="181" RenderTransformOrigin="-0.036,0.579"/>
                         <TextBox x:Name="txtLocation_Filter_SearchContactPerson" HorizontalAlignment="Left" Height="19" Margin="664,20,0,0"
-                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchAuctionItemByQuantity}" 
+                            TextWrapping="NoWrap" VerticalAlignment="Top" ToolTip="{x:Static ln:Resources.SearchLocationByContactPerson}" 
                             TextChanged="TxtChngLocation_Filter_Search" Width="100" RenderTransformOrigin="-0.036,0.579"/>
 
                         <ListView x:Name="lbxLocation_Grid" HorizontalAlignment="Left" Margin="10,39,0,0" Background="#fafafa"

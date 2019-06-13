@@ -403,6 +403,60 @@ namespace Auction.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search Location By Address.
+        /// </summary>
+        public static string SearchLocationByAddress {
+            get {
+                return ResourceManager.GetString("SearchLocationByAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Location By Availability.
+        /// </summary>
+        public static string SearchLocationByAvailability {
+            get {
+                return ResourceManager.GetString("SearchLocationByAvailability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Location By Capacity.
+        /// </summary>
+        public static string SearchLocationByCapacity {
+            get {
+                return ResourceManager.GetString("SearchLocationByCapacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Location By Contact Person.
+        /// </summary>
+        public static string SearchLocationByContactPerson {
+            get {
+                return ResourceManager.GetString("SearchLocationByContactPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Location By Name.
+        /// </summary>
+        public static string SearchLocationByName {
+            get {
+                return ResourceManager.GetString("SearchLocationByName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Location By Place.
+        /// </summary>
+        public static string SearchLocationByPlace {
+            get {
+                return ResourceManager.GetString("SearchLocationByPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sold.
         /// </summary>
         public static string Sold {

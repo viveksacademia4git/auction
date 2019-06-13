@@ -42,7 +42,7 @@ CREATE TABLE `auction_event` (
 
 LOCK TABLES `auction_event` WRITE;
 /*!40000 ALTER TABLE `auction_event` DISABLE KEYS */;
-INSERT INTO `auction_event` VALUES (1,'Paiting Auction','07.07.2019 10:00',100,0,'-',1,1,0),(2,'Suveniour Auction','08.07.2019 10:00',50,0,'-',2,1,0),(3,'Photo Auction','08.07.2019 14:00',50,0,'-',3,2,0);
+INSERT INTO `auction_event` VALUES (1,'Paiting Auction','07.07.2019 10:00',100,0,'-',1,1,0),(2,'Suveniour Auction','08.07.2019 10:00',50,1,'Jack Reynold',2,1,0),(3,'Photo Auction','08.07.2019 14:00',50,0,'-',3,2,0);
 /*!40000 ALTER TABLE `auction_event` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-13 10:09:37
+-- Dump completed on 2019-06-13 10:26:16

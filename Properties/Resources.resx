@@ -231,6 +231,24 @@
   <data name="SearchAuctionItemByType" xml:space="preserve">
     <value>Search Auction Item By Type</value>
   </data>
+  <data name="SearchLocationByAddress" xml:space="preserve">
+    <value>Search Location By Address</value>
+  </data>
+  <data name="SearchLocationByAvailability" xml:space="preserve">
+    <value>Search Location By Availability</value>
+  </data>
+  <data name="SearchLocationByCapacity" xml:space="preserve">
+    <value>Search Location By Capacity</value>
+  </data>
+  <data name="SearchLocationByContactPerson" xml:space="preserve">
+    <value>Search Location By Contact Person</value>
+  </data>
+  <data name="SearchLocationByName" xml:space="preserve">
+    <value>Search Location By Name</value>
+  </data>
+  <data name="SearchLocationByPlace" xml:space="preserve">
+    <value>Search Location By Place</value>
+  </data>
   <data name="Sold" xml:space="preserve">
     <value>Sold</value>
   </data>

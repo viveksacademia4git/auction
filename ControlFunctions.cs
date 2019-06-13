@@ -77,18 +77,18 @@ namespace Auction
                 auctionLocationSelectedIndex = 0;
                 executeQueryRowCount = AuctionLocationTableData.insertAuctionLocation(auctionLocation);
                 if (executeQueryRowCount > 0)
-                    auctionLocations.Insert(auctionLocationSelectedIndex++, auctionLocation);
+                    auctionLocations.Insert(auctionLocationSelectedIndex, auctionLocation);
             }
             else {
                 executeQueryRowCount = AuctionLocationTableData.updateAuctionLocation(auctionLocation);
                 if (executeQueryRowCount > 0) {
-                    auctionLocations.Insert(auctionLocationSelectedIndex++, auctionLocation);
-                    auctionLocations.RemoveAt(auctionLocationSelectedIndex);
+                    auctionLocations.Insert(auctionLocationSelectedIndex, auctionLocation);
+                    auctionLocations.RemoveAt(auctionLocationSelectedIndex+1);
                 }
             }
             if (executeQueryRowCount < 1)
                 return -1;
-            return auctionLocationSelectedIndex;
+            return auctionLocationSelectedIndex+1;
         }
 
         public void searchLocation(AuctionLocation al)
