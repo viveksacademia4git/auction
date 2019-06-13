@@ -45,18 +45,18 @@ namespace Auction
                 auctionItemSelectedIndex = 0;
                 executeQueryRowCount = AuctionItemTableData.insertAuctionItem(auctionItem);
                 if(executeQueryRowCount>0)
-                    auctionItems.Insert(auctionItemSelectedIndex++, auctionItem);
+                    auctionItems.Insert(auctionItemSelectedIndex, auctionItem);
             }
             else {
                 executeQueryRowCount = AuctionItemTableData.updateAuctionItem(auctionItem);
                 if (executeQueryRowCount > 0) {
-                    auctionItems.Insert(auctionItemSelectedIndex++, auctionItem);
-                    auctionItems.RemoveAt(auctionItemSelectedIndex);
+                    auctionItems.Insert(auctionItemSelectedIndex, auctionItem);
+                    auctionItems.RemoveAt(auctionItemSelectedIndex+1);
                 }
             }
             if (executeQueryRowCount < 1)
                 return -1;
-            return auctionItemSelectedIndex;
+            return auctionItemSelectedIndex + 1;
         }
 
         public void searchItem(AuctionItem ai)
