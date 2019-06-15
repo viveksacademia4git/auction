@@ -46,7 +46,7 @@ namespace Auction
             }
 
             string[] columns = { "eventName", "eventTime", "registrationFee", "auctionItemId", "auctionLocationId" };
-            object[] values= { name, timing, registrationFee, 1, 1 };
+            object[] values= { name, timing, registrationFee, auctionItemCopy.itemId, auctionLocationCopy.locationId };
 
             ActionDbData.insertRecord("auction_event", columns, values);
             mainWindow.clearCopyItem();

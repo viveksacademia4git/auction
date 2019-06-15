@@ -205,7 +205,7 @@ namespace Auction.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Event Dashboard.
+        ///   Looks up a localized string similar to Auction Event Dashboard.
         /// </summary>
         public static string EventDashboard {
             get {
